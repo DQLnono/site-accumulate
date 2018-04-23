@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" name="viewport" />
+  <meta content="yes" name="apple-mobile-web-app-capable" />
+  <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+  <meta content="telephone=no" name="format-detection" />
+  <title></title>
+  <script type="text/javascript">
+    /*vips -> 响应式布局 start*/
+    function _set_font_size_750() {
+        //先留着这个方法，不要删，要给专题调用
+    }
+    function setRootFontSize() {
+        var width = document.documentElement.clientWidth, fontSize;
+        if (width > 540) {
+            width = 540;
+        }
+        fontSize = (width / 10);
+        document.getElementsByTagName('html')[0].style['font-size'] = fontSize + 'px';
+        window.wapParams = {
+            rootFontSize: fontSize,
+            clientWidth: width
+        };
+    }
+    setRootFontSize();
+    window.addEventListener('resize', function() {
+        setRootFontSize();
+    }, false);
+    /*响应式布局 end*/
+
+    // 旋转屏幕，执行页面重渲染
+    
+    window.addEventListener('orientationchange', () => {
+      var p = document.createElement("p")
+      p.innerText="屏幕旋转，3s后执行页面重渲染！！";
+      document.getElementsByTagName('body')[0].insertBefore(p,document.getElementsByTagName('body')[0].childNodes[0]);
+      document.getElementsByTagName('body')[0].appendChild(p);
+      setTimeout(function(){
+        window.location.reload();
+      },3000)
+    });
+
+</script>
+
+</head>
+
+<body>
+	<style>
+		.s05{font-size: .5rem;}.s1{font-size: 1rem;}.s12{font-size: 1.2rem;}.s15{font-size: 1.5rem;}.s2{font-size: 2rem;}
+	</style>
+	<p class="s05">font-size:.5rem;</p>
+	<p class="s1">font-size:1rem;</p>
+	<p class="s12">font-size:1.2rem;</p>
+	<p class="s15">font-size:1.5rem;</p>
+	<p class="s2">font-size:2rem;</p>
+</body>
+
+</html>
